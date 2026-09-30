@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>PMO Hybrytec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: una página corta en cuatro paradas — qué, cómo, cuánto, quién */
+:root{
+  --paper:#F4F5F2;--surface:#FFFFFF;--ink:#0F1C2A;--ink-2:#3A4757;--muted:#687382;--line:#D8DCDD;
+  --panel:#10213A;--panel-ink:#E9EEF3;--panel-muted:#9FB0C3;--panel-line:rgba(233,238,243,.14);--panel-sun:#EDB246;
+  --sun:#C98A12;--sun-soft:rgba(201,138,18,.12);--leaf:#2B7A57;
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --wrap:1040px;--gutter:clamp(16px,4vw,40px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0A131E;--surface:#101C2B;--ink:#E7ECF0;--ink-2:#B3BDC8;--muted:#8391A1;--line:#21324A;
+  --panel:#0D1A2B;--sun:#EDB246;--sun-soft:rgba(237,178,70,.14);--leaf:#5DBE8C;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0A131E;--surface:#101C2B;--ink:#E7ECF0;--ink-2:#B3BDC8;--muted:#8391A1;--line:#21324A;
+  --panel:#0D1A2B;--sun:#EDB246;--sun-soft:rgba(237,178,70,.14);--leaf:#5DBE8C;color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+p{margin:0}
+em.hl{font-style:italic;color:var(--sun)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+section{padding-block:clamp(56px,8vw,96px)}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sun)}
+.lead{font-size:clamp(1.05rem,1.5vw,1.15rem);color:var(--ink-2);max-width:56ch}
+.head{display:grid;gap:14px;margin-bottom:clamp(32px,4vw,48px);max-width:720px}
+.num{font-variant-numeric:tabular-nums}
+
+/* Barra */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.brand{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;display:flex;gap:10px;align-items:center;white-space:nowrap}
+.brand i{width:9px;height:9px;background:var(--sun);transform:rotate(45deg)}
+.nav{display:flex;gap:24px}
+.nav a{font-size:.88rem;color:var(--ink-2);text-decoration:none}
+.nav a:hover{color:var(--ink)}
+@media (max-width:560px){.nav{gap:14px}.nav a:last-child{display:none}.brand span{display:none}}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;text-decoration:none;padding:12px 20px;border:1px solid transparent;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-sun{background:var(--panel-sun);color:#10213A}
+.btn-line{border-color:currentColor}
+
+/* Banda panel FV */
+.panel{background:var(--panel);color:var(--panel-ink);position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:repeating-linear-gradient(90deg,var(--panel-line) 0 1px,transparent 1px 64px),repeating-linear-gradient(0deg,var(--panel-line) 0 1px,transparent 1px 104px);
+  -webkit-mask-image:linear-gradient(115deg,transparent 35%,#000 95%);mask-image:linear-gradient(115deg,transparent 35%,#000 95%)}
+.panel>*{position:relative}
+.panel .eyebrow,.panel em.hl{color:var(--panel-sun)}
+.panel .lead{color:var(--panel-muted)}
+
+/* Hero */
+.hero{padding-block:clamp(64px,10vw,120px) clamp(48px,7vw,80px)}
+.hero h1{font-size:clamp(2.5rem,6vw,4.6rem);font-weight:400;max-width:16ch;margin-block:22px 24px;letter-spacing:-.02em}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(40px,5vw,60px);border-top:1px solid var(--panel-line)}
+.strip div{padding:20px 20px 0 0;display:grid;gap:4px;align-content:start}
+.strip div+div{padding-left:20px;border-left:1px solid var(--panel-line)}
+.strip .v{font-family:var(--f-display);font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1}
+.strip p{color:var(--panel-muted);font-size:.9rem}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+@media (max-width:620px){.strip{grid-template-columns:1fr}.strip div+div{padding-left:0;border-left:0;border-top:1px solid var(--panel-line)}.strip div{padding-bottom:16px}}
+
+/* Qué: arquitectura */
+.arch{display:grid;gap:10px}
+.roof{background:var(--panel);color:var(--panel-ink);padding:22px 26px;clip-path:polygon(3% 0,97% 0,100% 100%,0 100%);text-align:center}
+.roof h3{font-size:1.5rem}
+.roof p{color:var(--panel-muted);font-size:.95rem;margin-top:6px}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pillar{background:var(--surface);border:1px solid var(--line);padding:24px;display:grid;gap:12px;align-content:start}
+.pillar h3{font-size:1.35rem}
+.pillar .q{font-family:var(--f-display);font-style:italic;font-size:1.1rem;line-height:1.35;color:var(--ink-2)}
+.pillar .d{font-size:.92rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.pillar .k{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.base{border:1px solid var(--ink);padding:18px 24px;display:flex;flex-wrap:wrap;gap:4px 18px;align-items:baseline;justify-content:space-between}
+.base h3{font-size:1.3rem}
+.base p{font-size:.95rem;color:var(--ink-2)}
+.aside{margin-top:22px;font-size:.95rem;color:var(--ink-2)}
+.aside b{color:var(--ink)}
+.promise{margin-top:clamp(28px,4vw,40px);background:var(--panel);color:var(--panel-ink);padding:clamp(26px,4vw,44px);display:grid;gap:18px;border-top:3px solid var(--panel-sun)}
+.promise .eyebrow{color:var(--panel-sun)}
+.promise .big{font-family:var(--f-display);font-size:clamp(1.8rem,3.8vw,2.8rem);line-height:1.12;letter-spacing:-.01em;max-width:22ch}
+.promise em.hl{color:var(--panel-sun)}
+.gains{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,32px);border-top:1px solid var(--panel-line);padding-top:20px}
+.gains div{display:grid;gap:6px;align-content:start}
+.gains h3{font-size:1.25rem}
+.gains p{color:var(--panel-muted);font-size:.93rem}
+@media (max-width:760px){.pillars,.gains{grid-template-columns:1fr}.roof{clip-path:none}}
+
+/* Cómo: tres pasos */
+.timeline{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:3px;margin-bottom:8px}
+.timeline i{height:10px;display:block}
+.months{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.steps{display:grid;grid-template-columns:1fr 2fr 3fr;gap:clamp(18px,3vw,32px)}
+.step{display:grid;gap:8px;align-content:start}
+.step .when{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.step h3{font-size:1.55rem}
+.step p{color:var(--ink-2);font-size:.97rem;max-width:40ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.chips span{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line);background:var(--paper);padding:4px 8px}
+.who{font-size:.86rem;font-weight:600;display:flex;align-items:center;gap:8px}
+.who i{width:9px;height:9px;display:inline-block}
+.ask{margin-top:40px;padding:18px 22px;background:var(--surface);border:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-size:.97rem}
+.ask b{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sun);font-weight:500}
+@media (max-width:760px){.timeline,.months{display:none}.steps{grid-template-columns:1fr}.step{padding-left:16px;border-left:3px solid var(--line)}.step.s1{border-left-color:var(--sun)}.step.s2{border-left-color:var(--leaf)}.step.s3{border-image:linear-gradient(var(--sun),var(--leaf)) 1}}
+
+/* Cuánto */
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.opt{background:var(--surface);border:1px solid var(--line);padding:clamp(24px,3vw,34px);display:grid;gap:14px;align-content:start;position:relative}
+.opt .tag{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.opt h3{font-size:1.45rem}
+.opt p{color:var(--ink-2);font-size:.96rem}
+.price{font-family:var(--f-display);font-size:clamp(2.4rem,4.4vw,3.2rem);line-height:1;margin-top:6px}
+.price small{font-family:var(--f-body);font-size:.85rem;color:var(--muted);display:block;margin-top:8px;line-height:1.4}
+.opt.rec{background:var(--panel);color:var(--panel-ink);border-color:var(--panel)}
+.opt.rec .tag{color:var(--panel-sun)}
+.opt.rec p,.opt.rec .price small{color:var(--panel-muted)}
+.guarantee{margin-top:16px;border:1px solid var(--sun);background:var(--sun-soft);padding:20px 24px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 24px;align-items:center}
+.guarantee .v{font-family:var(--f-display);font-size:clamp(1.5rem,2.6vw,1.9rem);line-height:1.1;color:var(--sun);max-width:12ch}
+.guarantee p{font-size:.96rem;color:var(--ink-2)}
+.guarantee p b{color:var(--ink)}
+.pay{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.pay li{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--ink-2)}
+.pay b{font-family:var(--f-mono);font-weight:500;color:var(--ink);white-space:nowrap}
+.opt.rec .pay,.opt.rec .pay li{border-color:var(--panel-line)}
+.opt.rec .pay li{color:var(--panel-muted)}
+.opt.rec .pay b{color:var(--panel-ink)}
+.more{margin-top:16px;border:1px solid var(--line);background:var(--surface);padding:20px 24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:10px 28px;align-items:start}
+.more .tag{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.more h3{font-size:1.3rem;margin-top:6px}
+.more p{font-size:.96rem;color:var(--ink-2)}
+@media (max-width:760px){.more{grid-template-columns:1fr}}
+.small{margin-top:18px;font-size:.84rem;color:var(--muted);max-width:80ch}
+@media (max-width:760px){.options,.guarantee{grid-template-columns:1fr}}
+
+/* Quién */
+.me{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:clamp(28px,5vw,60px);align-items:center}
+.me img{display:block;width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 25%}
+.me h2{margin-block:10px 6px}
+.me .sub{color:var(--panel-muted);font-size:.95rem}
+.facts{margin:24px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.facts li{padding-left:22px;position:relative;color:var(--panel-ink);max-width:58ch}
+.facts li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;background:var(--panel-sun);transform:rotate(45deg)}
+.me .btn-line{color:var(--panel-ink);margin-top:26px}
+@media (max-width:720px){.me{grid-template-columns:1fr}.me img{max-width:220px}}
+
+/* Siguiente paso */
+.next{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start}
+.needs{margin:22px 0 0;padding:0;list-style:none;display:grid;border-top:1px solid var(--line)}
+.needs li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px}
+.needs span{font-family:var(--f-display);font-size:1.3rem;color:var(--sun);line-height:1.2}
+.card{background:var(--surface);border:1px solid var(--line);padding:24px;display:grid;gap:10px}
+.card .name{font-weight:700}
+.line{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-family:var(--f-mono);font-size:.92rem;color:var(--ink-2)}
+.copy{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;background:transparent;color:var(--sun);border:1px solid var(--line);padding:3px 8px;cursor:pointer}
+.copy:hover{border-color:var(--sun)}
+@media (max-width:760px){.next{grid-template-columns:1fr}}
+footer{padding-block:24px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line)}
+
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.26s}
+  @keyframes rise{from{transform:translateY(12px)}to{transform:none}}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><i></i><span>PMO · Hybrytec</span></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#que">Qué</a>
+      <a href="#como">Cómo</a>
+      <a href="#cuanto">Cuánto</a>
+      <a href="#quien">Quién</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="panel hero" id="inicio">
+  <div class="wrap">
+    <div class="eyebrow rise">Propuesta PMO · Hybrytec S.A.S. · Septiembre 2026</div>
+    <h1 class="rise d1">Todo el portafolio <em class="hl">bajo control</em>, operado por su propia gente, en seis meses.</h1>
+    <p class="lead rise d2">Hybrytec ya tiene el diagnóstico. El siguiente paso es convertirlo en control real: un modelo de gestión diseñado a su medida, implementado sobre los proyectos en curso y operado por su propio equipo, sin aumentar la nómina.</p>
+    <div class="strip rise d3">
+      <div><span class="v num">100%</span><p>Del portafolio bajo control y seguimiento</p></div>
+      <div><span class="v num">1 modelo</span><p>Único para todo el portafolio, construido sobre lo que ya funciona</p></div>
+      <div><span class="v num">6 meses</span><p>Hasta la operación autónoma de Hybrytec</p></div>
+    </div>
+    <div class="cta">
+      <a class="btn btn-sun" href="#que">Ver la propuesta</a>
+      <a class="btn btn-line" href="#como">Ver la ruta</a>
+    </div>
+  </div>
+</section>
+
+<section id="que">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">La propuesta</div>
+      <h2>Los controles mínimos para gobernar el portafolio.</h2>
+      <p class="lead">Hybrytec necesita un enfoque práctico, no burocrático: el mínimo de controles que le permita tener todo su portafolio bajo control y seguimiento permanente, aplicado desde ya a los proyectos en marcha. El modelo tiene <b>cinco componentes</b>: una base, tres pilares de control y la gobernanza que los sostiene.</p>
+    </div>
+    <div class="arch" role="img" aria-label="La estructura del portafolio como base, tres controles encima y la gobernanza como techo">
+      <div class="roof">
+        <h3>Gobernanza</h3>
+        <p>Quién revisa qué, cada cuánto y quién decide. Sin esto, lo demás se queda en formatos que nadie llena.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><h3>Triple restricción</h3><p class="q">¿Cómo va cada proyecto en alcance, tiempo y costo?</p><p class="d">Se valida la línea base de cada proyecto, o se establece donde no exista, junto con el estándar mínimo para medir su avance.</p></div>
+        <div class="pillar"><h3>Gestión de riesgos</h3><p class="q">¿Qué puede afectar el resultado de cada proyecto?</p><p class="d">Se consolida lo que ya existe en una matriz única, con escalas y criterios claros de escalamiento.</p></div>
+        <div class="pillar"><h3>Control de cambios</h3><p class="q">¿Qué cambios están afectando el margen o el plazo de cada proyecto, y quién los aprueba?</p><p class="d">Se validan y formalizan las políticas que ya existen y se ajustan según la metodología donde haga falta.</p></div>
+      </div>
+      <div class="base">
+        <h3>Estructura del portafolio</h3>
+        <p>Cómo se agrupan los proyectos en programas. Es la base de todo lo demás.</p>
+      </div>
+    </div>
+    <div class="promise">
+      <span class="eyebrow">La promesa de valor</span>
+      <p class="big">Todo el portafolio de Hybrytec <em class="hl">bajo control</em>. Sin sorpresas.</p>
+      <div class="gains">
+        <div><h3>Visibilidad total</h3><p>Gerencia conoce en cualquier momento el estado real de cada proyecto, programa y portafolio.</p></div>
+        <div><h3>Anticipación</h3><p>Los riesgos y desviaciones se detectan antes de convertirse en sobrecostos o retrasos.</p></div>
+        <div><h3>Decisiones con respaldo</h3><p>Cada cambio de alcance, plazo o costo se aprueba con su impacto medido. El margen queda protegido.</p></div>
+      </div>
+    </div>
+    <p class="aside"><b>Primero el proceso, después la herramienta.</b> Se parte de lo que Hybrytec ya tiene implementado: lo que funciona se estandariza y se integra al modelo. Con el proceso organizado y estable, se evalúa qué conviene automatizar y con qué herramienta.</p>
+  </div>
+</section>
+
+<section id="como" style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Cómo</div>
+      <h2>Seis meses, tres fases. Hybrytec asume el control de forma progresiva.</h2>
+    </div>
+    <div class="timeline" aria-hidden="true">
+      <i style="background:var(--sun)"></i>
+      <i style="background:var(--leaf)"></i><i style="background:var(--leaf)"></i>
+      <i style="background:linear-gradient(90deg,var(--sun),#8a8f3a)"></i><i style="background:linear-gradient(90deg,#8a8f3a,#5b8545)"></i><i style="background:linear-gradient(90deg,#5b8545,var(--leaf))"></i>
+    </div>
+    <div class="months" aria-hidden="true"><span>Mes 1</span><span>Mes 2</span><span>Mes 3</span><span>Mes 4</span><span>Mes 5</span><span>Mes 6</span></div>
+    <div class="steps">
+      <div class="step s1">
+        <span class="when">Mes 1</span>
+        <h3>Diseñar</h3>
+        <p>Sesiones de trabajo con Gerencia y cada director. Se diseñan los cinco componentes del modelo, empezando por los portafolios, programas y proyectos de la organización. Cierra con el modelo aprobado por Gerencia.</p>
+        <div class="chips"><span>Los 5 componentes del modelo</span></div>
+        <span class="who"><i style="background:var(--sun)"></i>Lidera el consultor</span>
+      </div>
+      <div class="step s2">
+        <span class="when">Meses 2 y 3</span>
+        <h3>Implementar</h3>
+        <p>Todos los proyectos quedan con lo mínimo para ser controlados según el diseño aprobado, con seguimiento metodológico desde el primer corte. Capacitación y revisión continua al equipo.</p>
+        <span class="who"><i style="background:var(--leaf)"></i>Ejecuta Hybrytec, con acompañamiento</span>
+      </div>
+      <div class="step s3">
+        <span class="when">Meses 4 a 6</span>
+        <h3>Operar</h3>
+        <p>En los meses 4 y 5 se implementa la gobernanza de la PMO: comités, reportes y ruta de decisión en funcionamiento. En el mes 6 Hybrytec opera la PMO de forma autónoma.</p>
+        <span class="who"><i style="background:linear-gradient(90deg,var(--sun),var(--leaf))"></i>Termina en manos de Hybrytec</span>
+      </div>
+    </div>
+    <div class="ask"><b>Dedicación del equipo</b><span>Depende de la cantidad y complejidad de los proyectos y de su estado actual. Con un nivel de madurez alto, bastan 2 a 3 horas semanales por responsable de programa. Además, un patrocinador en Gerencia que dirima desacuerdos.</span></div>
+  </div>
+</section>
+
+<section id="cuanto">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Cuánto vale</div>
+      <h2>Dos alcances, una misma base: <em class="hl">el diseño</em>.</h2>
+    </div>
+    <div class="options">
+      <article class="opt">
+        <span class="tag">Opción A · 4 a 6 semanas</span>
+        <h3>Diseño del modelo</h3>
+        <p>Hybrytec recibe un modelo validado metodológicamente bajo los más altos estándares y probado en la práctica: lo mínimo que se necesita para operarlo.</p>
+        <div class="price num">9 M<small>Valor fijo del diseño.</small></div>
+        <ul class="pay">
+          <li><span>Al iniciar</span><b class="num">4,5 M</b></li>
+          <li><span>Cuando Gerencia valida el modelo</span><b class="num">4,5 M</b></li>
+        </ul>
+      </article>
+      <article class="opt rec">
+        <span class="tag">Opción B · 6 meses · Recomendada</span>
+        <h3>Diseño y acompañamiento</h3>
+        <p>Al final la PMO funciona con su gente y los proyectos en curso están bajo control.</p>
+        <div class="price num">29–34 M<small>Valor total de los 6 meses.</small></div>
+        <ul class="pay">
+          <li><span>Diseño, mes 1 (mismas condiciones de la Opción A)</span><b class="num">9 M</b></li>
+          <li><span>Acompañamiento, meses 2 a 6, facturado mes a mes</span><b class="num">4–5 M / mes</b></li>
+        </ul>
+      </article>
+    </div>
+    <div class="guarantee">
+      <span class="v">Garantía sobre el diseño</span>
+      <p><b>El diseño se ajusta con Gerencia en las rondas que sean necesarias. Si aun así Gerencia decide no continuar, el proceso termina ahí y Hybrytec no paga el segundo 50% (4,5 M).</b> El acompañamiento de la Opción B se factura aparte, mes a mes, y puede cancelarse con 30 días de aviso. Si Hybrytec empieza con la A y luego pasa a la B, los 9 M ya pagados cuentan dentro del total.</p>
+    </div>
+    <div class="more">
+      <div><span class="tag">Alcance ampliado</span><h3>Implementación completa, con aliados</h3></div>
+      <p>Si Hybrytec prefiere ir más allá del modelo mínimo, también es posible una implementación integral, con firma consultora, software de gestión de portafolio y automatización. Sería un proyecto distinto, con su propio diseño y alcance, para el cual se identifican y coordinan los aliados adecuados en el mercado. Como referencia, su valor se estima por encima de los 100 M, según el nivel de robustez y las necesidades reales de la empresa.</p>
+    </div>
+    <p class="small">Valores en pesos, sin IVA, preliminares hasta revisar el diagnóstico y el número de proyectos. Los desplazamientos a Itagüí no están incluidos: se realizan cuando Hybrytec los solicite y se facturan al costo, con su aprobación previa.</p>
+  </div>
+</section>
+
+<section class="panel" id="quien">
+  <div class="wrap me">
+    <img src="img/Perfil2.jpeg" alt="Antonio León Tibaduiza" width="640" height="640">
+    <div>
+      <div class="eyebrow">Quién lo hace</div>
+      <h2>Antonio León Tibaduiza</h2>
+      <p class="sub">Ingeniero Electrónico · Especialista en Gerencia de Proyectos</p>
+      <ul class="facts">
+        <li>Montó la primera PMO de Afinia con PwC y después la operó dentro de la empresa: conoce los dos lados de la entrega.</li>
+        <li>Más de 10 años con operadores de red: Electricaribe, Air-e, Enel y el Grupo EPM. Conocimiento amplio de la operación del negocio de energía eléctrica en el país.</li>
+        <li>Scrum Master, Six Sigma Green Belt y Google Project Management.</li>
+      </ul>
+      <a class="btn btn-line" href="perfil.html">Ver perfil completo →</a>
+    </div>
+  </div>
+</section>
+
+<section id="siguiente">
+  <div class="wrap next">
+    <div>
+      <div class="eyebrow">Siguiente paso</div>
+      <h2 style="margin-top:14px">Para una propuesta en firme se requieren tres insumos.</h2>
+      <ol class="needs">
+        <li><span>1</span>El diagnóstico de operaciones.</li>
+        <li><span>2</span>La lista de proyectos activos y dónde se les hace seguimiento hoy.</li>
+        <li><span>3</span>El nombre del patrocinador.</li>
+      </ol>
+      <p class="lead" style="margin-top:18px">Con esa información, la propuesta en firme se entrega en cinco días hábiles.</p>
+    </div>
+    <div class="card">
+      <span class="name">Antonio León Tibaduiza</span>
+      <div class="line"><span>310 781 4087</span><button class="copy" type="button" data-copy="3107814087">Copiar</button></div>
+      <div class="line"><span>Tibaduiza1@gmail.com</span><button class="copy" type="button" data-copy="Tibaduiza1@gmail.com">Copiar</button></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Pre-propuesta para Hybrytec S.A.S. · Vigente 60 días desde el 28 de septiembre de 2026 · El documento completo va por separado.</div></footer>
+
+<script>
+(function(){
+  try{history.scrollRestoration='manual'}catch(e){}
+  function place(){var t=location.hash&&document.querySelector(location.hash);if(t){t.scrollIntoView({block:'start'})}else{window.scrollTo(0,0);var b=document.querySelector('.bar');if(b)b.scrollIntoView({block:'start'})}}
+  place();addEventListener('load',place);
+})();
+document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+  var t=b.getAttribute('data-copy');
+  function done(){var o=b.textContent;b.textContent='Copiado';setTimeout(function(){b.textContent=o},1400);}
+  function sel(){var r=document.createRange();r.selectNodeContents(b.previousElementSibling);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+  try{navigator.clipboard.writeText(t).then(done,sel);}catch(e){sel();}
+});});
+</script>
+
+</body>
+</html>
